@@ -1,10 +1,10 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $sub1= $_POST['sub1'];
-        $sub2= $_POST['sub2'];
-        $sub3= $_POST['sub3'];
-        $sub4= $_POST['sub4'];
-        $sub5= $_POST['sub5'];
+        $sub1= floatval($_POST['sub1']);
+        $sub2= floatval($_POST['sub2']);
+        $sub3= floatval($_POST['sub3']);
+        $sub4= floatval($_POST['sub4']);
+        $sub5= floatval($_POST['sub5']);
         
         $result= (($sub1 + $sub2 + $sub3 + $sub4 + $sub5)/500 )*100;
         if($result>=90){
