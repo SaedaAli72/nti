@@ -1,16 +1,19 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if($_POST['add']){
+        $add=$_POST['add'];
+        $sub=$_POST['sub'];
+        $div=$_POST['div'];
+        $mul=$_POST['mul'];
+        if($add == "+"){
             $result= $_POST['num1']+$_POST['num2'];
-        }elseif($_POST['sub']){
+        }elseif($sub == "-"){
             $result= $_POST['num1']-$_POST['num2'];
-        }elseif($_POST['div']){
+        }elseif($div == "/"){
             $result= $_POST['num1']/$_POST['num2'];
-        }elseif($_POST['mul']){
+        }elseif($mul =="*"){
             $result= $_POST['num1']*$_POST['num2'];
         };
 
-       
 
         $message="<div class='alert alert-success w-25 mt-2'>
         {$result}
