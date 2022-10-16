@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2022 at 11:08 PM
+-- Generation Time: Oct 16, 2022 at 09:56 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -244,8 +244,9 @@ CREATE TABLE `product_order` (
 
 CREATE TABLE `product_specs` (
   `product_id` bigint(20) UNSIGNED NOT NULL,
-  `specs_id` bigint(20) UNSIGNED NOT NULL,
-  `value` varchar(512) NOT NULL
+  `spec_id` bigint(20) UNSIGNED NOT NULL,
+  `value_ar` varchar(32) NOT NULL,
+  `value_en` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -288,9 +289,7 @@ CREATE TABLE `reviews` (
 CREATE TABLE `specs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name_en` varchar(512) NOT NULL,
-  `name_ar` varchar(512) NOT NULL,
-  `value_en` varchar(64) NOT NULL,
-  `value_ar` varchar(64) NOT NULL
+  `name_ar` varchar(512) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -439,7 +438,7 @@ ALTER TABLE `product_order`
 --
 ALTER TABLE `product_specs`
   ADD KEY `product_id` (`product_id`),
-  ADD KEY `specs_id` (`specs_id`);
+  ADD KEY `spec_id` (`spec_id`) USING BTREE;
 
 --
 -- Indexes for table `regions`
@@ -622,7 +621,7 @@ ALTER TABLE `product_order`
 --
 ALTER TABLE `product_specs`
   ADD CONSTRAINT `product_specs_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
-  ADD CONSTRAINT `product_specs_ibfk_2` FOREIGN KEY (`specs_id`) REFERENCES `specs` (`id`);
+  ADD CONSTRAINT `product_specs_ibfk_2` FOREIGN KEY (`spec_id`) REFERENCES `specs` (`id`);
 
 --
 -- Constraints for table `regions`
