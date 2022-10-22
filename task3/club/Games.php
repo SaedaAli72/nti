@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             
         //             }   
     
-      $_SESSION['football']= $_POST['football[]'];
+      $_SESSION['football']= $_POST['football[  ]'];
       $_SESSION['swimming']= $_POST['swimming[]'];
       $_SESSION['volly']= $_POST['volly[]'];
       $_SESSION['others']= $_POST['others[]'];
